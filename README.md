@@ -1,4 +1,9 @@
-# csci4448-project
-principles of object oriented design
+# Breaking Bread
+A one-stop shop for all your baking needs
 
-*Awesome stuff incoming*
+### Members 
+Friedrich Amouzou  
+Elena Ingraham  
+Hussain Quadri  
+Phi Trang
+
