@@ -1,37 +1,48 @@
-public class User{
-    public User(){
+import java.util.ArrayList;
+import java.util.List;
 
+public class User {
+
+    private int id, privilege;
+    private String email, password;
+
+
+    public User(int id, int privilege, String email, String password){
+        setEmail(email);
+        setID(id);
+        setPassword(password);
+        setPrivilege(privilege);
     }
     public int getID(){
-        //return id;
+        return id;
     }
 
     public String getEmail(){
-            //return email;
+        return email;
     }
 
     public int getPrivilege(){
-        //return privilege;
+        return privilege;
     }
 
     public String getPassword(){
-        //return password;
+        return password;
     }
 
-    public void setID(int newID){
-        //id = newID;
+    public void setID(int id){
+        this.id = id;
     }
 
-    public void setEmail(String newEmail){
-        //email = newEmail;
+    public void setEmail(String email){
+        this.email = email;
     }
 
-    public void setPrivilege(int priv){
-        //privilege = priv;
+    public void setPrivilege(int privilege){
+        this.privilege = privilege;
     }
 
-    public void setPassword(String newPassword){
-        //password = newPassword;
+    public void setPassword(String password){
+        this.password = password;
     }
 
     public bool verifyAccount(){
