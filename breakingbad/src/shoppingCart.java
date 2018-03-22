@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.*; //just to see the colors on intellij 
 public class shoppingCart{
     //if add to cart = y
     public double total = 0;
