@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import Product.java;
 
 public class User {
 
@@ -25,11 +26,11 @@ public class User {
         return privilege;
     }
 
-    public String getPassword(){
+    private String getPassword(){
         return password;
     }
 
-    public void setID(int id){
+    private void setID(int id){
         this.id = id;
     }
 
@@ -41,12 +42,12 @@ public class User {
         this.privilege = privilege;
     }
 
-    public void setPassword(String password){
+    private void setPassword(String password){
         this.password = password;
     }
 
     public bool verifyAccount(){
-
+        return (this.id != 0);
     }
 
     public int forgotPassword(){
