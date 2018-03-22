@@ -5,11 +5,11 @@ import Inventory.java;
 
 public class Customer {
     private Cart order;
-    private ArrayList<Cart> orderHistory;
+    private List<Cart> orderHistory;
     private String shippingAddress;
 
-    public Customer (String shippingAddress){
-        setAddress(shippingAddress);
+    public Customer (String address){
+        setAddress(address);
     }
 
     public String getAddress(){
@@ -20,7 +20,7 @@ public class Customer {
         this.shippingAddress = address;
     }
 
-    public ArrayList<Cart> getHistory(){
+    public List<Cart> getHistory(){
         return orderHistory;
     }
 
@@ -45,13 +45,13 @@ public class Customer {
         return 1;
     }
 
-    public int removeItem(int oldID){
-        Inventory.removeProduct(oldID);
+    public int removeItem(int oldId){
+        Inventory.removeProduct(oldId);
         return 1;
     }
 
-    public int changeItem(int oldID, Product newProduct){
-        Inventory.changeProduct(oldID, newProduct);
+    public int changeItem(int oldId, Product newProduct){
+        Inventory.changeProduct(oldId, newProduct);
         return 1;
     }
 

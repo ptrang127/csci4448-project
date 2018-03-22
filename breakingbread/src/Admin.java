@@ -4,11 +4,11 @@ import Product.java;
 
 public class Admin {
 
-    public User viewAccount(int userID){
+    public User viewAccount(int userId){
 
     }
 
-    public int removeAccount(int userID){
+    public int removeAccount(int userId){
 
     }
 
@@ -16,15 +16,15 @@ public class Admin {
 
     }
 
-    public int removeProduct(int oldID){
+    public int removeProduct(int oldId){
 
     }
 
-    public int changeProduct(int oldID){
+    public int changeProduct(int oldId, Product newProduct){
 
     }
 
-    public int addDeal(int productID, Deal deal){
+    public int addDeal(int productId, Deal deal){
 
     }
 }

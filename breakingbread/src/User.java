@@ -8,11 +8,11 @@ public class User {
     private String email, password;
 
 
-    public User(int id, int privilege, String email, String password){
+    public User(int id, /*int privilege,*/ String email, String password){
         setEmail(email);
-        setID(id);
+        setId(id);
         setPassword(password);
-        setPrivilege(privilege);
+        //setPrivilege(privilege);
     }
     public int getID(){
         return id;
@@ -30,31 +30,31 @@ public class User {
         return password;
     }
 
-    private void setID(int id){
-        this.id = id;
+    private void setId(int newId){
+        this.id = newId;
     }
 
-    public void setEmail(String email){
-        this.email = email;
+    public void setEmail(String newEmail){
+        this.email = newEmail;
     }
 
-    public void setPrivilege(int privilege){
+    /*public void setPrivilege(int privilege){
         this.privilege = privilege;
-    }
+    }*/
 
-    private void setPassword(String password){
-        this.password = password;
+    private void setPassword(String newPassword){
+        this.password = newPassword;
     }
 
     public bool verifyAccount(){
         return (this.id != 0);
     }
 
-    public int forgotPassword(){
+    public void forgotPassword(){
 
     }
 
-    public ArrayList<Product> searchProduct(String query){
+    public List<Product> searchProduct(String query){
 
     }
 }
