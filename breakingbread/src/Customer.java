@@ -1,7 +1,4 @@
-import User.java;
-import Product.java;
-import Cart.java;
-import Inventory.java;
+import java.util.*;
 
 public class Customer {
     private Cart order;

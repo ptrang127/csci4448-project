@@ -1,7 +1,3 @@
-import User.java;
-import Deal.java;
-import Product.java;
-
 public class Admin {
 
     public User viewAccount(int userId){

@@ -1,8 +1,8 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Inventory {
 
-    private ArrayList<Product> stock = new ArrayList<Product>();
+    private List<Product> stock = new ArrayList<Product>();
 
     public int addProduct(Product newProduct) {
 
@@ -16,7 +16,7 @@ public class Inventory {
 
     }
 
-    public ArrayList<Integer> searchProduct(String query) {
+    public List<Product> searchProduct(String query) {
 
     }
 

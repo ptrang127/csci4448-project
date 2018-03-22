@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import Product.java;
 
 public class User {
 
@@ -46,7 +45,7 @@ public class User {
         this.password = newPassword;
     }
 
-    public bool verifyAccount(){
+    public boolean verifyAccount(){
         return (this.id != 0);
     }
 
