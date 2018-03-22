@@ -1,4 +1,4 @@
-public class Admin {
+public class Admin extends User{
 
     public User viewAccount(int userId){
 
@@ -21,6 +21,6 @@ public class Admin {
     }
 
     public int addDeal(int productId, Deal deal){
-
+        Product.addDeal(deal);
     }
 }
