@@ -1,8 +1,8 @@
+import java.util.*;
 public class shoppingCart{
     //if add to cart = y
-    //;
+    public double total = 0;
     Map<String, int, int > cart = new HashMap();
-    iterator i = set.iterator
     void private setCart{
         if(addToCart()){
             cart.put(product.name, product.price, product.quantity);
@@ -10,10 +10,13 @@ public class shoppingCart{
             //possible addition of continue shopping or checkout on display
         }
     }
+    Set currentCart = cart.entrySet(); //cool built in Java ish to make a set from the hashmap idk if this should be here though
+    iterator i = currentCart.iterator; //this should work for the interator, length of the cart
     Hashmap public getCart{
         while(i.hasNext()){
-            //something with an interator
-            //to iterate and then print all items in cart
+            //may just set up an arrayList that makes more sense (ordered)
+            System.out.println(cart.get(i)); //this will not be in order so I will have to use a map or arrayList probably
+            total += //cart.get(i).price * cart.get(i).quantity, there is a better way and I will figure it out
         }
 
     }
