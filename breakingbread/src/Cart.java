@@ -1,20 +1,24 @@
-import java.util.*; //just to see the colors on intellij 
+import java.util.*;
+import java.io.*;//just to see the colors on intellij
 public class Cart{
     ArrayList<product> Products = new ArrayList<product>();
     public float price = 0;
     public Cart(Product product){
         Product.add(product);
     }
-    private static Product[] addItem(Product product){
-        items.put(product.getName(), product);
+    private static ArrayList[] addItem(Product product){
+        Product.add(product);
         System.out.println("Item Successfully Added to Cart");
+        return Products[];
         //possible addition of continue shopping or checkout on display
     }
-    private static Product[] removeItem(Product product){
+    private static ArrayList[] removeItem(Product product){
         items.
     }
     private void clearCart(){
-        for
+        Products.clear(); //better preformance that remove all apparently 
+        System.out.println("Cart Cleared");
+
     }
     public float getPrice() {
         Set currentCart = items.entrySet(); //cool built in Java ish to make a set from the hashmap idk if this should be here though
