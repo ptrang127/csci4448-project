@@ -31,3 +31,4 @@ public class Cart{
     //create 'total' variable, the sum of th price of all the items in the items
     //display menu to continue shopping(optional)
 }
+//possibly use state design pattern?
