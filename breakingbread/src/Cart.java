@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.*; //just to see the colors on intellij 
 public class Cart{
     //if add to items = y
@@ -5,29 +6,45 @@ public class Cart{
     Map<String, Product> items = new HashMap<String, Product>();
     public void addItem(Product product){
         items.put(product.getName(), product);
+=======
+import java.util.*;
+import java.io.*;//just to see the colors on intellij
+public class Cart extends Inventory{
+    ArrayList<product> Products = new ArrayList<product>();
+    List<int> Prices = new List<int>();
+    public float cost = 0;
+    public Cart(Product product){
+        Product.add(product);
+    }
+    private static ArrayList[] addItem(Product product){
+        Product.add(product);
+>>>>>>> 7dc444df8f5e99ef6d030433cf89e562baf04474
         System.out.println("Item Successfully Added to Cart");
+        return Products[];
         //possible addition of continue shopping or checkout on display
     }
+    private static ArrayList[] removeItem(Product product){
+        Products.remove(product);
+        System.out.println(Products[]); //maybe iterate and print each item
+        return Products[];
+    }
+    private void clearCart(){
+        Products.clear(); //better preformance that remove all apparently
+        System.out.println("Cart Cleared");
 
-    public float getPrice() {
-        Set currentCart = items.entrySet(); //cool built in Java ish to make a set from the hashmap idk if this should be here though
+    }
+    public float getCost() { //total cost of items in cart it
+
         Iterator<String> i = currentCart.iterator(); //this should work for the interator, length of the items
         while(i.hasNext()) //possibly create a new iterator
         {
-            //iterate through all items in hashmap
+            //iterate through all items in arraylist
             //for every item
-            price += (items.get(i.next()).getDiscountPrice());
+            cost += (Products.get(i.next(price)));
         }
-        System.out.println(price);
-        return price;
+        System.out.println(cost);
+        return cost;
     }
-    //items is our Hashmap
-    //Display all items in hashmap when in items page
-    //there should also be a quantity variable
-    //if statement
-    //if in stock add to items, add item and price to hashmap
-    //display message 'Item successfully added to items
-    //else display error
-    //create 'total' variable, the sum of th price of all the items in the items
-    //display menu to continue shopping(optional)
 }
+//possibly use visitor design pattern?
+public interface
