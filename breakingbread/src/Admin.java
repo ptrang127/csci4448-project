@@ -1,11 +1,11 @@
 public class Admin extends User{
 
-    public User viewAccount(int userId){
-
+    public User viewAccount(int userId) {
+        // mysql code to print out user
     }
 
     public int removeAccount(int userId){
-
+        //
     }
 
     public int addProduct(Product newProduct){

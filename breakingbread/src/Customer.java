@@ -1,11 +1,12 @@
 import java.util.*;
 
 public class Customer extends User{
-    private Cart order;
-    private List<Cart> orderHistory;
+
+    private Cart order = new Cart();
+    private List<Cart> orderHistory = new ArrayList<>();
     private String shippingAddress;
 
-    public Customer (String address){
+    public Customer(String address){
         setAddress(address);
     }
 
@@ -21,24 +22,21 @@ public class Customer extends User{
         return orderHistory;
     }
 
-    public int addToHistory(Cart cart){
-        (if cart.status != "Failed" || cart.status != "New"){
-            orderHistory.add(cart);
-            return 1;
-        }
-        return 0;
+    public void addToHistory(Cart cart) {
+        orderHistory.add(order);
     }
 
     public Cart getCart(){
         return order;
     }
 
-    public int checkout(){
-        //checkout stuff
+    public void checkout(){
+        addToHistory(order);
+        order.items.clear();
     }
 
     public int addItem(Product newProduct){
-        Inventory.addProduct(newProduct);
+        order.addItem(newProduct);
         return 1;
     }
 

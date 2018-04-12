@@ -6,6 +6,9 @@ public class User {
     private int id, privilege;
     private String email, password;
 
+    public User() {
+
+    }
 
     public User(int id, /*int privilege,*/ String email, String password){
         setEmail(email);

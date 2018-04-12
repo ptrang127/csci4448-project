@@ -3,7 +3,7 @@ public class Cart{
     //if add to items = y
     public float price = 0;
     Map<String, Product> items = new HashMap<String, Product>();
-    private void addItem(Product product){
+    public void addItem(Product product){
         items.put(product.getName(), product);
         System.out.println("Item Successfully Added to Cart");
         //possible addition of continue shopping or checkout on display
