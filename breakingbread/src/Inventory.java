@@ -39,6 +39,9 @@ public class Inventory {
             }
         }
 
+        for(int i = 0; i < searches.size(); i ++) {
+            System.out.println(searches.get(i).getName());
+        }
         return searches;
     }
 
