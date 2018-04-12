@@ -1,26 +1,27 @@
 import java.util.*;
+
 public class Cart extends Inventory{
 
     ArrayList<Product> items = new ArrayList<>();
     public float cost = 0;
 
+
     public Cart(){
+
     }
 
-    public ArrayList<Product> addItem(Product newProduct){
+    public void addItem(Product newProduct){
         items.add(newProduct);
         System.out.println("Item Successfully Added to Cart");
-        return items;
         //possible addition of continue shopping or checkout on display
     }
 
-    public ArrayList<Product> removeItem(Product newProduct){
+    public void removeItem(Product newProduct){
         items.remove(newProduct);
-        return items;
     }
 
     public void clearCart(){
-        items.clear(); //better preformance that remove all apparently
+        items.clear(); //better performance that removes all apparently
         System.out.println("Cart Cleared");
 
     }
@@ -32,3 +33,4 @@ public class Cart extends Inventory{
         return cost;
     }
 }
+
