@@ -1,16 +1,16 @@
-// EXAMPLE CODE FOUND ONLINE, WILL BE USED AS REFERENCE FOR LATER GUI
-//Imports are listed in full to show what's being used
-//could just import javax.swing.* and java.awt.* etc..
-import javax.swing.*;
-import java.awt.BorderLayout;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
+import java.util.*;
 public class blob {
 
     public static void main(String[] args) {
 
-        Inventory inventory = new Inventory()
+        // global inventory
+        Inventory inventory = new Inventory();
+
+        // global list of users
+        ArrayList<User> allUsers= new ArrayList<>();
+
+        // global list of admins
+        Arraylist<Admin> allAdmins = new ArrayList<>();
 
 
     }

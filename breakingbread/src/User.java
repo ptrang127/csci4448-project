@@ -56,7 +56,7 @@ public class User {
 
     }
 
-    public List<Product> searchProduct(String query){
-
+    public List<Product> searchProduct(String query, Inventory inventory){
+        return inventory.searchProduct(query);
     }
 }

@@ -1,50 +1,34 @@
-<<<<<<< HEAD
-import java.util.*; //just to see the colors on intellij 
-public class Cart{
-    //if add to items = y
-    public float price = 0;
-    Map<String, Product> items = new HashMap<String, Product>();
-    public void addItem(Product product){
-        items.put(product.getName(), product);
-=======
 import java.util.*;
-import java.io.*;//just to see the colors on intellij
 public class Cart extends Inventory{
-    ArrayList<product> Products = new ArrayList<product>();
-    List<int> Prices = new List<int>();
+
+    ArrayList<Product> items = new ArrayList<>();
     public float cost = 0;
-    public Cart(Product product){
-        Product.add(product);
+
+    public Cart(){
     }
-    private static ArrayList[] addItem(Product product){
-        Product.add(product);
->>>>>>> 7dc444df8f5e99ef6d030433cf89e562baf04474
+
+    public ArrayList<Product> addItem(Product newProduct){
+        items.add(newProduct);
         System.out.println("Item Successfully Added to Cart");
-        return Products[];
+        return items;
         //possible addition of continue shopping or checkout on display
     }
-    private static ArrayList[] removeItem(Product product){
-        Products.remove(product);
-        System.out.println(Products[]); //maybe iterate and print each item
-        return Products[];
+
+    public ArrayList<Product> removeItem(Product newProduct){
+        items.remove(newProduct);
+        return items;
     }
-    private void clearCart(){
-        Products.clear(); //better preformance that remove all apparently
+
+    public void clearCart(){
+        items.clear(); //better preformance that remove all apparently
         System.out.println("Cart Cleared");
 
     }
     public float getCost() { //total cost of items in cart it
 
-        Iterator<String> i = currentCart.iterator(); //this should work for the interator, length of the items
-        while(i.hasNext()) //possibly create a new iterator
-        {
-            //iterate through all items in arraylist
-            //for every item
-            cost += (Products.get(i.next(price)));
+        for(int i = 0; i < items.size(); i ++) {
+            cost += items.get(i).getPrice();
         }
-        System.out.println(cost);
         return cost;
     }
 }
-//possibly use visitor design pattern?
-public interface

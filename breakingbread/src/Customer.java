@@ -32,21 +32,18 @@ public class Customer extends User{
 
     public void checkout(){
         addToHistory(order);
-        order.items.clear();
+        order.clearCart();
     }
 
-    public int addItem(Product newProduct){
+    public void addItem(Product newProduct){
         order.addItem(newProduct);
-        return 1;
     }
 
-    public int removeItem(int oldId){
-        Inventory.removeProduct(oldId);
-        return 1;
+    public void removeItem(Product newProduct){
+        order.removeItem(newProduct);
     }
 
     public int changeItem(int oldId, Product newProduct){
-        Inventory.changeProduct(oldId, newProduct);
         return 1;
     }
 
