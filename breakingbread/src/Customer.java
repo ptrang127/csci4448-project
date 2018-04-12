@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Customer {
+public class Customer extends User{
     private Cart order;
     private List<Cart> orderHistory;
     private String shippingAddress;
