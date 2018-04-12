@@ -1,14 +1,5 @@
-<<<<<<< HEAD
 import java.util.*; //just to see the colors on intellij 
-public class Cart{
-    //if add to items = y
-    public float price = 0;
-    Map<String, Product> items = new HashMap<String, Product>();
-    public void addItem(Product product){
-        items.put(product.getName(), product);
-=======
-import java.util.*;
-import java.io.*;//just to see the colors on intellij
+import java.io.*;
 public class Cart extends Inventory{
     ArrayList<product> Products = new ArrayList<product>();
     List<int> Prices = new List<int>();
@@ -18,7 +9,6 @@ public class Cart extends Inventory{
     }
     private static ArrayList[] addItem(Product product){
         Product.add(product);
->>>>>>> 7dc444df8f5e99ef6d030433cf89e562baf04474
         System.out.println("Item Successfully Added to Cart");
         return Products[];
         //possible addition of continue shopping or checkout on display
@@ -46,5 +36,5 @@ public class Cart extends Inventory{
         return cost;
     }
 }
-//possibly use visitor design pattern?
+//possibly use strategy pattern?
 public interface
