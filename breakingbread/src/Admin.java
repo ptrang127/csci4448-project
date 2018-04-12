@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Admin extends User{
 /*
     public User viewAccount(int userId) {
@@ -9,15 +11,15 @@ public class Admin extends User{
     }
 
     public int addProduct(Product newProduct){
-
+        Inventory.addProduct(newProduct);
     }
 
     public int removeProduct(int oldId){
-
+        Inventory.removeProduct(oldId);
     }
 
     public int changeProduct(int oldId, Product newProduct){
-
+        Inventory.changeProduct(oldId, newProduct);
     }
 
     public int addDeal(int productId, Deal deal){
