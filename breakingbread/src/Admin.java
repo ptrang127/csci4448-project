@@ -18,7 +18,6 @@ public class Admin extends User{
     TO-DO: Find User account in userlist using userID and
     set values to default and/or delete
     */
-     */
     public int removeAccount(int userId){
         //
         return userId;
