@@ -1,12 +1,12 @@
 public abstract class cakeCustomizer implements customProduct {
-    protected customProduct customCake;
+    protected customProduct customizedCake;
+    public cakeCustomizer(customProduct customizedCake) {
 
-    public cakeCustomizer(customProduct customCake) {
-        this.customCake = customCake;
+        this.customizedCake = customizedCake;
     }
 
     public void make() {
 
-        customCake.make();
+        customizedCake.make();
     }
 }
