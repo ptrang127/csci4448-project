@@ -37,5 +37,35 @@ public class Application {
     public static void Search(String query){
         new MainPage(currentUser, currentUser.searchProduct(query));
     }
+
+    public void addAccount(User newUser){
+        allUsers.add(newUser);
+    }
+
+    public static void removeAccount(int userId){
+        Iterator<User> itr = allUsers.iterator();
+        User thisUser = null;
+        while(itr.hasNext()) {
+            thisUser = itr.next();
+            if (thisUser.getID() == userId) {
+                break;
+            }
+            //thisUser = null;
+        }
+        itr.remove();
+    }
+
+    public static User searchAccount(int userId){
+        Iterator<User> itr = allUsers.iterator();
+        User thisUser = null;
+        while(itr.hasNext()) {
+            thisUser = itr.next();
+            if (thisUser.getID() == userId) {
+                break;
+            }
+            //thisUser = null;
+        }
+        return thisUser;
+    }
 }
 

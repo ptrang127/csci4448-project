@@ -12,7 +12,7 @@ public class Admin extends User{
 
     public User viewAccount(int userId) {
         // mysql code to print out user
-        return Application.allUsers.get(userId);
+        return Application.searchAccount(userId);
 
     }
     /*
@@ -21,6 +21,7 @@ public class Admin extends User{
     */
     public int removeAccount(int userId){
         //
+        Application.removeAccount(userId);
         return userId;
     }
 
