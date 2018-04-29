@@ -48,8 +48,8 @@ public class User {
         this.password = newPassword;
     }
 
-    public boolean verifyAccount(){
-        return (this.id != 0);
+    public boolean verifyAccount(String name, String password){
+        return (getEmail().equals(name) && getPassword().equals(password));
     }
 
     public void forgotPassword(){
