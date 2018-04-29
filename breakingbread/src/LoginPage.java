@@ -10,9 +10,6 @@ public class LoginPage extends JFrame{
     private JPasswordField fieldPassword = new JPasswordField(20);
     private JButton buttonLogin = new JButton("Login");
     private JPanel newPanel = new JPanel(new GridBagLayout());
-    public static void main(String[] args) {
-        LoginPage frame = new LoginPage();
-    }
 
     private void startPage() {
         buttonLogin.addActionListener(new ActionListener() {
@@ -42,13 +39,13 @@ public class LoginPage extends JFrame{
         constraints.gridx = 1;
         newPanel.add(fieldPassword, constraints);
 
+    }
+
+    private void endPage(){
         // add the panel to this frame
         add(newPanel);
 
         setTitle("LoginPage Form");
-    }
-
-    private void endPage(){
         pack();
         setDefaultCloseOperation(javax.swing.
                 WindowConstants.DISPOSE_ON_CLOSE);
