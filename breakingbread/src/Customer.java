@@ -2,11 +2,15 @@ import java.util.*;
 
 public class Customer extends User{
 
-    private Cart order = new Cart();
+    public Cart order = new Cart();
     private List<Cart> orderHistory = new ArrayList<>();
     private String shippingAddress;
 
-    public Customer(String address){
+    private int id;
+    private String email;
+    private String password;
+
+    public Customer(int id, String email, String password, String address){
         setAddress(address);
     }
 
@@ -31,6 +35,10 @@ public class Customer extends User{
     }
 
     public void checkout(){
+        for(int i = 0; i < order.items.size(); i++) {
+            // System.out.println(order.items.get(i).getName());
+            Inventory.removeProduct(order.items.get(i));
+        }
         addToHistory(order);
         order.clearCart();
     }

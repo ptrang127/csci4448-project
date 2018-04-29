@@ -4,18 +4,19 @@ public class blob {
     public static void main(String[] args) {
 
         // global inventory
-        Inventory inventory = new Inventory();
-        Product kit = new Product(1, 4, "hello kitty kit", "it's a kit", 4);
-        inventory.addProduct(kit);
+        Inventory inventory = Inventory.getInstance();
 
         // global list of users
         ArrayList<User> allUsers= new ArrayList<>();
 
         // global list of admins
         ArrayList<Admin> allAdmins = new ArrayList<>();
-
-        User user1 = new User(1, "p.trang127@gmail.com", "password");
-        user1.searchProduct("bobobob", inventory);
+        Product kit = new Product(1, 20, "Cakes", "A basic vanilla cake", 4);
+        inventory.addProduct(kit);
+        Customer user1 = new Customer(1, "p.trang127@gmail.com", "password", "street");
+        user1.searchProduct("ca", inventory);
+        user1.addItem(kit);
+        user1.checkout();
 
     }
 

@@ -2,19 +2,47 @@ import java.util.*;
 
 public class Inventory {
 
-    private List<Product> stock = new ArrayList<Product>();
+    // singleton
+    private static Inventory single_instance = null;
+    private static List<Product> stock = new ArrayList<Product>();
 
-    public Inventory() {
+    private Inventory() {
+        Product kit = new Product(1, 20, "Cakes", "A basic vanilla cake", 4);
+        stock.add(kit);
+        Product kit2 = new Product(2, 48, "Cupcakes", "Batches of fresh cupcakes that come in packs of 4", 4);
+        stock.add(kit2);
+        Product kit3 = new Product(3, 20, "Pastries", "Basic pastry", 4);
+        stock.add(kit3);
+        Product kit4 = new Product(4, 30, "Bread", "Loaves of our best bread", 4);
+        stock.add(kit4);
+        Product kit5 = new Product(5, 30, "Scones", "Like the top of a fluffy muffin", 4);
+        stock.add(kit5);
+        Product kit6 = new Product(6, 120, "Donuts", "Creamy donuts", 4);
+        stock.add(kit6);
+        Product kit7 = new Product(7, 25, "Crepes", "Thin pancakes with creamy toppings", 4);
+        stock.add(kit7);
+        Product kit8 = new Product(8, 40, "Pie", "Hard crust pies", 4);
+        stock.add(kit8);
 
     }
+
+    public static Inventory getInstance() {
+        if (single_instance == null) {
+            single_instance = new Inventory();
+        }
+        return single_instance;
+    }
+
     public void addProduct(Product newProduct) {
         stock.add(newProduct);
     }
 
-    public void removeProduct(int oldID) {
+    public static void removeProduct(Product product) {
         for(int i = 0; i < stock.size(); i++) {
-            if(stock.get(i).getId() == oldID) {
-                stock.remove(i);
+            if(stock.get(i).getId() == product.getId()) {
+                int newQuantity = stock.get(i).getQuantity() - product.getQuantity();
+                stock.get(i).setQuantity(newQuantity);
+                System.out.println(stock.get(i).getQuantity());
             }
         }
     }
@@ -34,7 +62,7 @@ public class Inventory {
     public List<Product> searchProduct(String query){
         List<Product> searches = new ArrayList<Product>();
         for(int i = 0; i < stock.size(); i ++) {
-            if(stock.get(i).getName().contains(query)){
+            if(stock.get(i).getName().toLowerCase().contains(query.toLowerCase())){
                 searches.add(stock.get(i));
             }
         }
@@ -48,4 +76,12 @@ public class Inventory {
         return searches;
     }
 
+    public static boolean checkProduct(Product product) {
+        for(int i = 0; i < stock.size(); i++) {
+            if(stock.get(i).getId() == product.getId() && stock.get(i).getQuantity() <= product.getQuantity()) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

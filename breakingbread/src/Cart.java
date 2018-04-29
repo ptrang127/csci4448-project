@@ -1,22 +1,28 @@
 import java.util.*;
 
-public class Cart extends Inventory{
+public class Cart {
 
     ArrayList<Product> items = new ArrayList<>();
     public float cost = 0;
 
 
-    public Cart(){
+    public Cart() {
 
     }
 
     public void addItem(Product newProduct){
-        items.add(newProduct);
-        System.out.println("Item Successfully Added to Cart");
-        //possible addition of continue shopping or checkout on display
+        if(Inventory.checkProduct(newProduct)) {
+            items.add(newProduct);
+            System.out.println("Item Successfully Added to Cart");
+            //possible addition of continue shopping or checkout on display
+        } else {
+            System.out.println("Item could not be added");
+        }
+
     }
 
     public void removeItem(Product newProduct){
+        System.out.println(newProduct.getName() + "removed");
         items.remove(newProduct);
     }
 
