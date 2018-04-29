@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Application {
     public static ArrayList<User> allUsers = new ArrayList<>();
+    private static User currentUser = null;
     public static void main(String[] args) {
         // global inventory
         LoginPage login = new LoginPage();
@@ -15,7 +16,6 @@ public class Application {
 
     public static void Login(String name, String password){
         Iterator<User> itr = allUsers.iterator();
-        User currentUser = null;
         while(itr.hasNext()){
             currentUser = itr.next();
             if(currentUser.verifyAccount(name,password)){
@@ -27,8 +27,12 @@ public class Application {
             new LoginPage("Username or password is incorrect");
         }
         else {
-            System.out.println("Yay");
+            new MainPage(currentUser);
         }
+    }
+
+    public static void Search(String query){
+        currentUser.searchProduct(query);
     }
 }
 
