@@ -3,12 +3,11 @@ import java.util.*;
 public class Application {
     public static ArrayList<User> allUsers = new ArrayList<>();
     public static void main(String[] args) {
-        LoginPage login = new LoginPage();
         // global inventory
-        Inventory inventory = new Inventory();
+        LoginPage login = new LoginPage();
+        Inventory inventory = Inventory.getInstance();
         Product kit = new Product(1, 4, "hello kitty kit", "it's a kit", 4);
         inventory.addProduct(kit);
-
 
         User user1 = new User(1, "p.trang127@gmail.com", "password");
         allUsers.add(user1);

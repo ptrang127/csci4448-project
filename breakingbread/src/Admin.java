@@ -28,11 +28,6 @@ public class Admin extends User{
         return 0;
     }
 
-    public int removeProduct(int oldId){
-        inventory.removeProduct(oldId);
-        return oldId;
-    }
-
     public int changeProduct(int oldId, Product newProduct){
         inventory.changeProduct(oldId, newProduct);
         return oldId;
