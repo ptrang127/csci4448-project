@@ -36,7 +36,6 @@ public class Customer extends User{
 
     public void checkout(){
         for(int i = 0; i < order.items.size(); i++) {
-            // System.out.println(order.items.get(i).getName());
             Inventory.removeProduct(order.items.get(i));
         }
         addToHistory(order);

@@ -12,12 +12,12 @@ public class blob {
         // global list of admins
         ArrayList<Admin> allAdmins = new ArrayList<>();
         Product kit = new Product(1, 20, "Cakes", "A basic vanilla cake", 4);
-        inventory.addProduct(kit);
         Customer user1 = new Customer(1, "p.trang127@gmail.com", "password", "street");
-        user1.searchProduct("ca", inventory);
+       //  user1.searchProduct("ca", inventory);
         user1.addItem(kit);
+        inventory.display();
         user1.checkout();
-
+        inventory.display();
     }
 
 }

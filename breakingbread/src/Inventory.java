@@ -42,8 +42,15 @@ public class Inventory {
             if(stock.get(i).getId() == product.getId()) {
                 int newQuantity = stock.get(i).getQuantity() - product.getQuantity();
                 stock.get(i).setQuantity(newQuantity);
-                System.out.println(stock.get(i).getQuantity());
             }
+        }
+    }
+
+    public void display() {
+        for (int i = 0; i < stock.size(); i++) {
+            Product product = stock.get(i);
+            System.out.println("Item ID: " + product.getId() + " | Product: " + product.getName() + " | Quantity: " + product.getQuantity());
+
         }
     }
 
