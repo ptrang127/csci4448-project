@@ -14,7 +14,7 @@ public class Inventory {
     public void removeProduct(int oldID) {
         for(int i = 0; i < stock.size(); i++) {
             if(stock.get(i).getId() == oldID) {
-                stock.remove(i);
+                stock.remove(stock.get(i));
             }
         }
     }
@@ -37,13 +37,6 @@ public class Inventory {
             if(stock.get(i).getName().contains(query)){
                 searches.add(stock.get(i));
             }
-        }
-        if(searches.size() != 0) {
-            for (int i = 0; i < searches.size(); i++) {
-                System.out.println(searches.get(i).getName());
-            }
-        } else {
-            System.out.println("Item not found.");
         }
         return searches;
     }

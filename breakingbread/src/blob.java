@@ -15,7 +15,7 @@ public class blob {
         ArrayList<Admin> allAdmins = new ArrayList<>();
 
         User user1 = new User(1, "p.trang127@gmail.com", "password");
-        System.out.println(user1.searchProduct("hello kitty", inventory));
+        user1.searchProduct("bobobob", inventory);
 
     }
 
