@@ -91,4 +91,8 @@ public class Inventory {
         }
         return false;
     }
+
+    public Product getProduct(int Id){
+        return stock.get(Id);
+    }
 }
