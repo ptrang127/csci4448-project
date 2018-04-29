@@ -57,13 +57,12 @@ public class LoginPage extends JFrame{
     public LoginPage() {
         startPage();
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
+        constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets = new Insets(10, 10, 10, 10);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
         constraints.gridwidth = 2;
-        constraints.anchor = GridBagConstraints.CENTER;
         newPanel.add(buttonLogin, constraints);
         endPage();
     }
@@ -74,19 +73,16 @@ public class LoginPage extends JFrame{
         errorLabel.setForeground(Color.RED);
 
         GridBagConstraints constraints = new GridBagConstraints();
-        constraints.anchor = GridBagConstraints.WEST;
+        constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets = new Insets(10, 10, 10, 10);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
         constraints.gridwidth = 4;
-        constraints.anchor = GridBagConstraints.CENTER;
         newPanel.add(errorLabel, constraints);
 
-        constraints.gridx = 0;
         constraints.gridy = 3;
         constraints.gridwidth = 2;
-        constraints.anchor = GridBagConstraints.CENTER;
         newPanel.add(buttonLogin, constraints);
         endPage();
     }

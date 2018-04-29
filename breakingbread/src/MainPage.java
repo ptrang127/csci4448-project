@@ -8,7 +8,7 @@ public class MainPage extends JFrame{
     private JTextField textUsername = new JTextField(20);
     private JPanel panel = new JPanel();
 
-    public  MainPage(User user) {
+    public void startPage(){
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
         constraints.insets = new Insets(10, 10, 10, 10);
@@ -27,7 +27,9 @@ public class MainPage extends JFrame{
 
         constraints.gridx = 1;
         panel.add(textUsername, constraints);
+    }
 
+    public void endPage(){
         add(panel);
 
         pack();
@@ -38,4 +40,32 @@ public class MainPage extends JFrame{
         setResizable(true);
         setVisible(true);
     }
+
+    public MainPage(User user) {
+       startPage();
+       endPage();
+    }
+
+    public MainPage(User user, java.util.List<Product> products) {
+        startPage();
+        java.util.Iterator<Product> itr = products.iterator();
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.anchor = GridBagConstraints.WEST;
+        constraints.insets = new Insets(10, 10, 10, 10);
+        int i = 1;
+        String results = "<html>";
+        while (i++ < 20 && itr.hasNext()){
+            i++;
+            results+=itr.next().getName() + "<br>";
+        }
+        results+="</html>";
+        JLabel searchResults= new JLabel(results);
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.gridwidth = 4;
+        panel.add(searchResults, constraints);
+        endPage();
+    }
+
+
 }

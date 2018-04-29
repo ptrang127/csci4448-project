@@ -9,7 +9,7 @@ public class blueCakeDecorator extends cakeCustomizer{
         setBlueFrosting(customizedCake);
     }
     private void setBlueFrosting(customProduct customizedCake){
-        System.out.println("Frosting Color: Blue");
+        System.out.print("Frosting Color: Blue");
 
     }
 }

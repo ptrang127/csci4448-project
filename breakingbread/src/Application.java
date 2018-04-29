@@ -5,13 +5,16 @@ public class Application {
     private static User currentUser = null;
     public static void main(String[] args) {
         // global inventory
-        LoginPage login = new LoginPage();
         Inventory inventory = Inventory.getInstance();
         Product kit = new Product(1, 4, "hello kitty kit", "it's a kit", 4);
         inventory.addProduct(kit);
 
         User user1 = new User(1, "p.trang127@gmail.com", "password");
         allUsers.add(user1);
+
+        //new LoginPage();
+        currentUser = user1;
+        new MainPage(user1);
     }
 
     public static void Login(String name, String password){
@@ -32,7 +35,7 @@ public class Application {
     }
 
     public static void Search(String query){
-        currentUser.searchProduct(query);
+        new MainPage(currentUser, currentUser.searchProduct(query));
     }
 }
 
