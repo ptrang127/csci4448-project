@@ -1,6 +1,6 @@
 public class customCupCake implements customProduct{
     @Override
     public void make() {
-        System.out.println("Custom Cup Cake");
+        System.out.println("Cup Cake");
     }
 }
