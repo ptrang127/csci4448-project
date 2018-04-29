@@ -8,12 +8,13 @@ public class Admin extends User{
     Figure out viewAccount method to find account from userlist and return
     User details.
      */
-    Inventory inventory;
+    //Inventory inventory;
 
-   /* public User viewAccount(int userId) {
+    public User viewAccount(int userId) {
         // mysql code to print out user
+        return Application.allUsers.get(userId);
 
-    }*/
+    }
     /*
     TO-DO: Find User account in userlist using userID and
     set values to default and/or delete
@@ -24,12 +25,14 @@ public class Admin extends User{
     }
 
     public int addProduct(Product newProduct){
-        inventory.addProduct(newProduct);
+        Inventory stock2 = Inventory.getInstance();
+        stock2.addProduct(newProduct);
         return 0;
     }
 
     public int changeProduct(int oldId, Product newProduct){
-        inventory.changeProduct(oldId, newProduct);
+        Inventory stock2 = Inventory.getInstance();
+        stock2.changeProduct(oldId, newProduct);
         return oldId;
     }
 
@@ -42,6 +45,8 @@ public class Admin extends User{
     public int addDeal(int productId, Deal deal){
         //List<Product> = inventory.searchProduct()
         //Product.addDeal(deal);
+        Product stock2 = Inventory.getInstance().getProduct(productId);
+        stock2.addDeal(deal);
         return productId;
     }
 
