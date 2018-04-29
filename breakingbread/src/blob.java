@@ -7,7 +7,7 @@ public class blob {
         Inventory inventory = Inventory.getInstance();
 
         // global list of users
-        ArrayList<User> allUsers= new ArrayList<>();
+        ArrayList<User> allUsers = new ArrayList<>();
 
         // global list of admins
         ArrayList<Admin> allAdmins = new ArrayList<>();
