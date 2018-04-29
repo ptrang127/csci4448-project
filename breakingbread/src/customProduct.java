@@ -1,3 +1,3 @@
-public interface customProduct{
+ public interface customProduct{
     void make();
 }
