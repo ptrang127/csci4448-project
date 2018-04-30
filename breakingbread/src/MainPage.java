@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainPage extends JFrame{
-    public MainPage(User user) {
+    public MainPage(User user, String message) {
         //Overall layout
         setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -50,13 +50,12 @@ public class MainPage extends JFrame{
         constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.weightx = 1.0;
         constraints.anchor = GridBagConstraints.WEST;
         constraints.insets = new Insets(0, 10, 0, 10);
 
         headerPanel.add(userLabel, constraints);
         constraints.gridx = 1;
-        constraints.anchor = GridBagConstraints.EAST;
+        constraints.anchor = GridBagConstraints.WEST;
         headerPanel.add(signoutButton, constraints);
 
         signoutButton.addActionListener(e -> {
@@ -64,6 +63,19 @@ public class MainPage extends JFrame{
             setVisible(false);
             dispose();
         });
+
+        JButton cart = new JButton(String.format("Cart"));
+        constraints.gridx = 2;
+        constraints.anchor = GridBagConstraints.EAST;
+        constraints.weightx = 1.0;
+        headerPanel.add(cart, constraints);
+        cart.addActionListener(e -> {
+            Application.cart();
+            setVisible(false);
+            dispose();
+        });
+
+
 
         // add components to the content pane
         constraints = new GridBagConstraints();
@@ -82,11 +94,20 @@ public class MainPage extends JFrame{
         //searchPanel.setBackground(orange);
         add(searchPanel, constraints);
 
+        if(!message.isEmpty()){
+            constraints.gridy++;
+            constraints.anchor = GridBagConstraints.CENTER;
+            constraints.weightx = 0;
+            constraints.fill = GridBagConstraints.NONE;
+            constraints.insets = new Insets(10, 10, 10, 10);
+            JLabel label = new JLabel(message);
+            add(label, constraints);
+        }
+
         setSize(5000,5000);
         pack();
         setTitle("Breaking Bread");
-        setDefaultCloseOperation(javax.swing.
-                WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
         setVisible(true);

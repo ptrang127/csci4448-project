@@ -78,8 +78,7 @@ public class SignUpPage extends JFrame{
 
         setTitle("Sign Up Page");
         pack();
-        setDefaultCloseOperation(javax.swing.
-                WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);

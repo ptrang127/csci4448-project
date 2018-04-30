@@ -41,5 +41,13 @@ public class Cart {
         }
         return cost;
     }
+
+    public int getSize() {
+        int size = 0;
+        for(int i = 0; i < items.size(); i ++) {
+            size += items.get(i).getQuantity();
+        }
+        return size;
+    }
 }
 

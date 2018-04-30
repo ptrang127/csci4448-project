@@ -5,6 +5,7 @@ public class User {
 
     private int id, privilege;
     private String email, password;
+    private Cart order;
 
     public User() {
 
@@ -39,6 +40,10 @@ public class User {
     public void setEmail(String newEmail){
         this.email = newEmail;
     }
+
+    public Cart getCart(){return order;}
+
+    public void setCart(Cart order){this.order = order;}
 
     /*public void setPrivilege(int privilege){
         this.privilege = privilege;

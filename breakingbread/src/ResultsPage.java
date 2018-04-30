@@ -15,7 +15,7 @@ public class ResultsPage extends JFrame {
 
         //search Bar
         JButton searchButton = new JButton("Search");
-        JTextField searchField = new JTextField(20);
+        JTextField searchField = new JTextField(query, 20);
         JPanel searchPanel = new JPanel(new GridBagLayout());
 
         constraints.gridx = 0;
@@ -40,6 +40,7 @@ public class ResultsPage extends JFrame {
         JPanel resultsPanel = new JPanel(new GridBagLayout());
 
         constraints = new GridBagConstraints();
+        constraints.insets = new Insets(0,10,0,10);
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.NORTHWEST;
@@ -56,7 +57,7 @@ public class ResultsPage extends JFrame {
         //search functionality
         ActionListener searchFunction = e -> {
             listModel.clear();
-            List<Product> products = Application.search(query);
+            List<Product> products = Application.search(searchField.getText());
             if(products.isEmpty()){
                 message.setText("No results");
                 pack();
@@ -133,8 +134,7 @@ public class ResultsPage extends JFrame {
         setSize(5000,5000);
         pack();
         setTitle("Search Results");
-        setDefaultCloseOperation(javax.swing.
-                WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(true);
         setVisible(true);

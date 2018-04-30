@@ -11,6 +11,7 @@ public class Application {
         User user1 = new User(ID++, "p.trang127@gmail.com", "password");
         allUsers.add(user1);
 
+        //new ProductPage(Inventory.getInstance().getProduct(4));
         new LoginPage();
     }
 
@@ -27,7 +28,7 @@ public class Application {
             return false;
         }
         else {
-            new MainPage(currentUser);
+            new MainPage(currentUser, "");
             return true;
         }
     }
@@ -43,13 +44,23 @@ public class Application {
         }
         currentUser = new User(ID++, name, password);
         allUsers.add(currentUser);
-        new MainPage(currentUser);
+        new MainPage(currentUser, "");
         return "";
     }
 
     public static void  signout() {
         currentUser = null;
         new LoginPage();
+    }
+
+    public  static void cart() {
+        new CartPage(currentUser);
+    }
+
+    public  static void addcart(Product product) {
+        //currentUser.getCart().addItem(product);
+        System.out.println(currentUser.getEmail());
+        new MainPage(currentUser, "Item Successfully Added to Cart");
     }
 
     public static void product(Product product) {
