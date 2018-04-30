@@ -31,8 +31,8 @@ public class Cart {
         System.out.println("Cart Cleared");
 
     }
-    public void customizeProduct{
-        colorCakeDecorator(customProduct, String color);
+    public void customizeProduct(customProduct product, String customization){
+
     }
     public float getCost() { //total cost of items in cart it
 

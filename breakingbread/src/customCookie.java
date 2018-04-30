@@ -3,5 +3,4 @@ public class customCookie implements customProduct{
         public void make() {
             System.out.println("Custom Cookie: ");
         }
-    }
 }

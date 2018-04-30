@@ -1,20 +1,28 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
-public class LoginPage extends JFrame{
-
-    public LoginPage() {
+public class SignUpPage extends JFrame{
+    public SignUpPage() {
         JLabel nameLabel = new JLabel("Enter username: ");
         JLabel passwordLabel = new JLabel("Enter password: ");
+        JLabel confirmLabel = new JLabel("Confirm password: ");
         JTextField nameField = new JTextField(20);
         JPasswordField passwordField = new JPasswordField(20);
-        JButton loginButton = new JButton("Login");
-        JButton signUpButton = new JButton("Sign up");
-        JLabel errorLabel = new JLabel("Username or password is incorrect");
+        JPasswordField confirmField = new JPasswordField(20);
+        JButton signUpButton = new JButton("Sign Up");
+        JLabel errorLabel = new JLabel();
         JPanel panel = new JPanel(new GridBagLayout());
 
-        loginButton.addActionListener(e -> {
-            if(!Application.login(nameField.getText(), new String(passwordField.getPassword()))){
+        signUpButton.addActionListener(e -> {
+            String error;
+            if(!Arrays.equals(passwordField.getPassword(), confirmField.getPassword())){
+                errorLabel.setText("Passwords don't match");
+                errorLabel.setVisible(true);
+                pack();
+            }
+            else if (!(error = Application.signup(nameField.getText(),new String(passwordField.getPassword()))).isEmpty()){
+                errorLabel.setText(error);
                 errorLabel.setVisible(true);
                 pack();
             }
@@ -24,11 +32,6 @@ public class LoginPage extends JFrame{
             }
         });
 
-        signUpButton.addActionListener(e ->{
-            setVisible(false);
-            dispose();
-            new SignUpPage();
-        });
 
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.WEST;
@@ -49,6 +52,12 @@ public class LoginPage extends JFrame{
         constraints.gridx = 1;
         panel.add(passwordField, constraints);
 
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        panel.add(confirmLabel, constraints);
+
+        constraints.gridx = 1;
+        panel.add(confirmField, constraints);
 
 
         errorLabel.setForeground(Color.RED);
@@ -56,20 +65,18 @@ public class LoginPage extends JFrame{
 
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.gridx = 0;
-        constraints.gridy = 2;
+        constraints.gridy = 3;
         constraints.gridwidth = 2;
         panel.add(errorLabel, constraints);
-
-        constraints.gridy = 3;
-        panel.add(loginButton, constraints);
 
         constraints.gridy = 4;
         panel.add(signUpButton, constraints);
 
+
         // add the panel to this frame
         add(panel);
 
-        setTitle("Login Page");
+        setTitle("Sign Up Page");
         pack();
         setDefaultCloseOperation(javax.swing.
                 WindowConstants.DISPOSE_ON_CLOSE);
