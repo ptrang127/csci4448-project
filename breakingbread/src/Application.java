@@ -12,12 +12,12 @@ public class Application {
         User user1 = new User(1, "p.trang127@gmail.com", "password");
         allUsers.add(user1);
 
-        //new LoginPage();
         currentUser = user1;
         new MainPage(user1);
+        //new LoginPage();
     }
 
-    public static void Login(String name, String password){
+    public static Boolean Login(String name, String password){
         Iterator<User> itr = allUsers.iterator();
         while(itr.hasNext()){
             currentUser = itr.next();
@@ -27,15 +27,16 @@ public class Application {
             currentUser = null;
         }
         if(currentUser == null){
-            new LoginPage("Username or password is incorrect");
+            return false;
         }
         else {
             new MainPage(currentUser);
+            return true;
         }
     }
 
-    public static void Search(String query){
-        new MainPage(currentUser, currentUser.searchProduct(query));
+    public static List<Product> Search(String query){
+        return currentUser.searchProduct(query);
     }
 }
 
