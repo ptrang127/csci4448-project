@@ -79,4 +79,9 @@ public class Product {
     public void removeDeal(Deal deal){
         deals.remove(deal);
     }
+
+    @Override
+    public String toString() {
+        return getName();
+    }
 }

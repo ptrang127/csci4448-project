@@ -7,8 +7,6 @@ public class Application {
     public static void main(String[] args) {
         // global inventory
         Inventory inventory = Inventory.getInstance();
-        Product kit = new Product(1, 4, "hello kitty kit", "it's a kit", 4);
-        inventory.addProduct(kit);
 
         User user1 = new User(ID++, "p.trang127@gmail.com", "password");
         allUsers.add(user1);
@@ -49,7 +47,20 @@ public class Application {
         return "";
     }
 
-    public static List<Product> Search(String query){
+    public static void  signout() {
+        currentUser = null;
+        new LoginPage();
+    }
+
+    public static void product(Product product) {
+        new ProductPage(product);
+    }
+
+    public static void results(String query) {
+        new ResultsPage(query, currentUser);
+    }
+
+    public static List<Product> search(String query){
         return currentUser.searchProduct(query);
     }
 
