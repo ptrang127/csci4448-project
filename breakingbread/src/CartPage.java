@@ -31,8 +31,7 @@ public class CartPage extends Page {
         pack();
 
     }
-
-
+    
     private JPanel resultsPanel = new JPanel(new GridLayout(0,3));
     private void results(Customer user) {
         resultsPanel.removeAll();
@@ -49,9 +48,7 @@ public class CartPage extends Page {
     public CartPage(Customer user) {
         super();
         header(user);
-        user.order.addItem(Inventory.getInstance().getProduct(0));
-        user.order.addItem(Inventory.getInstance().getProduct(3));
-        user.order.addItem(Inventory.getInstance().getProduct(2));
+        home(user);
 
         changePanel.setVisible(false);
 

@@ -85,6 +85,7 @@ public class ResultsPage extends Page {
     public ResultsPage(String query, Admin user){
         super();
         header(user);
+        home(user);
         results.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 Product product = results.getSelectedValue();
@@ -98,6 +99,7 @@ public class ResultsPage extends Page {
     protected ResultsPage(String query, Customer user) {
         super();
         header(user);
+        home(user);
         results.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 Product product = results.getSelectedValue();

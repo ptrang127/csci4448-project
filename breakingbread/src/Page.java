@@ -27,8 +27,8 @@ public abstract class Page extends JFrame{
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.WEST;
         constraints.insets = new Insets(0, 10, 0, 10);
-
         headerPanel.add(userLabel, constraints);
+
         constraints.gridx = 1;
         constraints.weightx = 1.0;
         constraints.anchor = GridBagConstraints.EAST;
@@ -48,6 +48,33 @@ public abstract class Page extends JFrame{
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(10, 0, 10, 0);
         pane.add(headerPanel, constraints);
+    }
+
+    private JButton homeButton = new JButton("Home");
+    protected void home(){
+        constraints = new GridBagConstraints();
+        constraints.gridx = 2;
+        constraints.gridy = 0;
+        constraints.weightx = 1.0;
+        constraints.anchor = GridBagConstraints.EAST;
+        constraints.insets = new Insets(0, 10, 0, 10);
+        headerPanel.add(homeButton, constraints);
+    }
+
+    protected void home(Customer user){
+        home();
+        homeButton.addActionListener(e -> {
+            new MainPage(user);
+            close();
+        });
+    }
+
+    protected void home(Admin user){
+        home();
+        homeButton.addActionListener(e -> {
+            new MainPage(user);
+            close();
+        });
     }
 
     protected Page(){
