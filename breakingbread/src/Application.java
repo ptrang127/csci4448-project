@@ -23,7 +23,8 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        admins.add(new Admin(1,"Fred@breadbreaker.com","password"));
+        customers.add(new Customer(1,"fake@fake.com","password","fake street"));
+        admins.add(new Admin(2,"Fred@breadbreaker.com","password"));
         new LoginPage();
 
 
