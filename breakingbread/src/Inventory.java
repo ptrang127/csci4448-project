@@ -5,6 +5,7 @@ public class Inventory {
     // singleton
     private static Inventory single_instance = null;
     private static List<Product> stock = new ArrayList<>();
+    private static int ID = 1;
 
     private Inventory() {
         stock.add(new Product(1, 20, "Cake", "A basic vanilla cake", "img/cake.jpg",4));
@@ -24,6 +25,7 @@ public class Inventory {
     }
 
     public void addProduct(Product newProduct) {
+        newProduct.setId(ID++);
         stock.add(newProduct);
     }
 
