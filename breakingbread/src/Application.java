@@ -116,17 +116,6 @@ public class Application {
         return "";
     }
 
-
-    public  static void addcart(Product product) {
-        customers.get(currentUser).getCart().addItem(product);
-        System.out.println(customers.get(currentUser).getEmail());
-        new MainPage(customers.get(currentUser));
-    }
-
-    public static List<Product> searchProduct(String query){
-        return Inventory.getInstance().searchProduct(query);
-    }
-
     public static void removeAccount(int userId){
         Iterator<Customer> itr = customers.iterator();
         Customer thisUser = null;

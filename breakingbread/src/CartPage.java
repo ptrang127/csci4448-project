@@ -6,7 +6,8 @@ public class CartPage extends Page {
     private JPanel changePanel = new JPanel(new GridBagLayout());
     private JButton changeButton = new JButton();
     private JTextField changeField = new JTextField(4);
-    private void change(Product product, Customer user){
+    private void change(Customer user, Product prod){
+        Product product = prod.clone();
         changePanel.setVisible(true);
         changeButton.setText(String.format("Change %s Quantity", product.getName()));
         ActionListener changeQuantity = e -> {
@@ -18,7 +19,7 @@ public class CartPage extends Page {
                 else if (newQuantity > Inventory.getInstance().getProduct(product.getId()).getQuantity()){
                     newQuantity = Inventory.getInstance().getProduct(product.getId()).getQuantity();
                 }
-                user.removeItem(product);
+                user.removeItem(product.getId());
                 product.setQuantity(newQuantity);
                 user.addItem(product);
                 results(user);
@@ -37,7 +38,7 @@ public class CartPage extends Page {
         resultsPanel.removeAll();
         user.getCart().getItems().forEach(product -> {
             JButton name = new JButton(product.getName());
-            name.addActionListener(e->change(product, user));
+            name.addActionListener(e->change(user, product));
             resultsPanel.add(name);
             resultsPanel.add(new JLabel(String.format("%d",product.getQuantity()),SwingConstants.CENTER));
             resultsPanel.add(new JLabel(String.format("$%.2f",product.getQuantity()*product.getDiscountPrice()),SwingConstants.RIGHT));

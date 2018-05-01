@@ -43,8 +43,6 @@ public class Customer extends User{
         order.addItem(newProduct);
     }
 
-    public void removeItem(Product newProduct){
-        order.removeItem(newProduct);
-    }
+    public void removeItem(int ID){ order.removeItem(ID); }
 
 }
