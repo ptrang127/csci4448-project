@@ -1,21 +1,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class User {
+public abstract class User {
 
-    private int id, privilege;
+    private int id;
     private String email, password;
-    private Cart order;
 
-    public User() {
-
-    }
-
-    public User(int id, /*int privilege,*/ String email, String password){
+    public User(int id, String email, String password){
         setEmail(email);
         setId(id);
         setPassword(password);
-        //setPrivilege(privilege);
     }
     public int getID(){
         return id;
@@ -25,15 +19,11 @@ public class User {
         return email;
     }
 
-    public int getPrivilege(){
-        return privilege;
-    }
-
     private String getPassword(){
         return password;
     }
 
-    private void setId(int newId){
+    protected void setId(int newId){
         this.id = newId;
     }
 
@@ -41,24 +31,12 @@ public class User {
         this.email = newEmail;
     }
 
-    public Cart getCart(){return order;}
-
-    public void setCart(Cart order){this.order = order;}
-
-    /*public void setPrivilege(int privilege){
-        this.privilege = privilege;
-    }*/
-
-    private void setPassword(String newPassword){
+    protected void setPassword(String newPassword){
         this.password = newPassword;
     }
 
-    public boolean verifyAccount(String name, String password){
-        return (getEmail().equals(name) && getPassword().equals(password));
-    }
-
-    public void forgotPassword(){
-
+    public boolean verifyAccount(String email, String password){
+        return (getEmail().equals(email) && getPassword().equals(password));
     }
 
     public List<Product> searchProduct(String query){

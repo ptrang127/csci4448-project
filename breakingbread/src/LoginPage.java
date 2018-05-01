@@ -25,9 +25,9 @@ public class LoginPage extends JFrame{
         });
 
         signUpButton.addActionListener(e ->{
+            new SignUpPage();
             setVisible(false);
             dispose();
-            new SignUpPage();
         });
 
         GridBagConstraints constraints = new GridBagConstraints();

@@ -2,28 +2,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-public class SignUpPage extends JFrame{
-    public SignUpPage() {
+public class AdminSignUpPage extends JFrame{
+    public AdminSignUpPage() {
         JLabel emailLabel = new JLabel("Enter email: ");
         JLabel passwordLabel = new JLabel("Enter password: ");
         JLabel confirmLabel = new JLabel("Confirm password: ");
-        JLabel addressLabel = new JLabel("Enter address: ");
         JLabel errorLabel = new JLabel();
 
         JTextField emailField = new JTextField(20);
-        JTextField addressField = new JTextField(20);
         JPasswordField passwordField = new JPasswordField(20);
         JPasswordField confirmField = new JPasswordField(20);
 
-        JButton signUpButton = new JButton("Sign Up");
-        signUpButton.addActionListener(e -> {
+        JButton signUpButton = new JButton("Customer Sign Up");
+        signUpButton.addActionListener(e ->{
+            new SignUpPage();
+            setVisible(false);
+            dispose();
+        });
+
+        JButton adminButton = new JButton("Sign Up");
+        adminButton.addActionListener(e -> {
             String error;
             if(!Arrays.equals(passwordField.getPassword(), confirmField.getPassword())){
                 errorLabel.setText("Passwords don't match");
                 errorLabel.setVisible(true);
                 pack();
             }
-            else if (!(error = Application.signup(emailField.getText(),new String(passwordField.getPassword()),addressField.getText())).isEmpty()){
+            else if (!(error = Application.adminsignup(emailField.getText(),new String(passwordField.getPassword()))).isEmpty()){
                 errorLabel.setText(error);
                 errorLabel.setVisible(true);
                 pack();
@@ -32,13 +37,6 @@ public class SignUpPage extends JFrame{
                 setVisible(false);
                 dispose();
             }
-        });
-
-        JButton adminButton = new JButton("Admin Sign Up");
-        adminButton.addActionListener(e ->{
-            new AdminSignUpPage();
-            setVisible(false);
-            dispose();
         });
 
         JButton backButton = new JButton("Back");
@@ -72,13 +70,6 @@ public class SignUpPage extends JFrame{
 
         constraints.gridx = 0;
         constraints.gridy++;
-        pane.add(addressLabel, constraints);
-
-        constraints.gridx = 1;
-        pane.add(addressField, constraints);
-
-        constraints.gridx = 0;
-        constraints.gridy++;
         pane.add(passwordLabel, constraints);
 
         constraints.gridx = 1;
@@ -103,10 +94,10 @@ public class SignUpPage extends JFrame{
 
         constraints.gridy++;
         constraints.gridwidth = 1;
-        pane.add(signUpButton, constraints);
+        pane.add(adminButton, constraints);
 
         constraints.gridx = 1;
-        pane.add(adminButton, constraints);
+        pane.add(signUpButton, constraints);
 
         setTitle("Sign Up Page");
         pack();

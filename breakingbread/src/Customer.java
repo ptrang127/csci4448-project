@@ -6,11 +6,8 @@ public class Customer extends User{
     private List<Cart> orderHistory = new ArrayList<>();
     private String shippingAddress;
 
-    private int id;
-    private String email;
-    private String password;
-
     public Customer(int id, String email, String password, String address){
+        super(id,email,password);
         setAddress(address);
     }
 

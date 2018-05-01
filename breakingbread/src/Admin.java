@@ -1,14 +1,9 @@
 import java.util.*;
 
 public class Admin extends User{
-
-    /*TO-DO: Replace this so that we can access the inventory
-    initialised when running the application. Also implement singleton
-    design pattern.
-    Figure out viewAccount method to find account from userlist and return
-    User details.
-     */
-    //Inventory inventory;
+    public Admin(int ID, String email, String password) {
+        super(ID,email,password);
+    }
 
     public User viewAccount(int userId) {
         // mysql code to print out user
