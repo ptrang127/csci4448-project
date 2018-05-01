@@ -22,6 +22,8 @@ public class Application {
         customers.add(new Customer(1,"c@c.c","",""));
         admins.add(new Admin(2,"a@a.a",""));
         new MainPage(new Customer(1,"c@c.c","",""));
+
+
     }
 
     public static Boolean login(String email, String password){

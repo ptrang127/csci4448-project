@@ -11,7 +11,7 @@ public class Admin extends User{
 
     }
     /*
-    TO-DO: Find User account in userlist using userID and
+    Find User account in userlist using userID and
     set values to default and/or delete
     */
     public int removeAccount(int userId){
@@ -33,7 +33,7 @@ public class Admin extends User{
     }
 
     /*
-     TO-DO: Find Desired product from ProductList
+     Find Desired product from ProductList
      Then modify by calling addDeal method found in Product class.
      Figure out how to use lists created at the start of application
      and be able to modify them to keep intended functionality.
