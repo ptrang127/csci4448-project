@@ -18,10 +18,15 @@ public class Application {
         return false;
     }
 
+    public static ArrayList<Customer> getCustomers(){
+        return customers;
+    }
+
     public static void main(String[] args) {
         customers.add(new Customer(1,"c@c.c","",""));
         admins.add(new Admin(2,"a@a.a",""));
-        new MainPage(new Customer(1,"c@c.c","",""));
+        new MainPage(new Admin(2,"a@a.a",""));
+        //new MainPage(new Customer(1,"c@c.c","",""));
 
 
     }

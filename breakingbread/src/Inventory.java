@@ -4,7 +4,7 @@ public class Inventory {
 
     // singleton
     private static Inventory single_instance = null;
-    private static List<Product> stock = new ArrayList<Product>();
+    private static List<Product> stock = new ArrayList<>();
 
     private Inventory() {
         stock.add(new Product(1, 20, "Cake", "A basic vanilla cake", "img/cake.jpg",4));
@@ -32,6 +32,15 @@ public class Inventory {
             if(stock.get(i).getId() == product.getId()) {
                 int newQuantity = stock.get(i).getQuantity() - product.getQuantity();
                 stock.get(i).setQuantity(newQuantity);
+            }
+        }
+    }
+
+    public static void deleteProduct(Product product) {
+        for(int i = 0; i < stock.size(); i++) {
+            if(stock.get(i).getId() == product.getId()) {
+                stock.remove(i);
+                break;
             }
         }
     }

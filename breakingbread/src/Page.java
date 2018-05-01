@@ -30,7 +30,7 @@ public abstract class Page extends JFrame{
         headerPanel.add(userLabel, constraints);
 
         constraints.gridx = 1;
-        constraints.anchor = GridBagConstraints.EAST;
+        constraints.weightx = 1;
         headerPanel.add(signoutButton, constraints);
 
         signoutButton.addActionListener(e -> {
@@ -54,7 +54,6 @@ public abstract class Page extends JFrame{
         constraints = new GridBagConstraints();
         constraints.gridx = 2;
         constraints.gridy = 0;
-        constraints.weightx = 1.0;
         constraints.anchor = GridBagConstraints.EAST;
         constraints.insets = new Insets(0, 10, 0, 10);
         headerPanel.add(homeButton, constraints);

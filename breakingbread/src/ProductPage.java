@@ -76,15 +76,12 @@ public class ProductPage extends Page{
         constraints.gridx = 5;
         addPanel.add(addButton, constraints);
 
-
         constraints.gridx = 0;
         constraints.gridy = 4;
         constraints.weighty = 1;
         constraints.weightx = 1;
         constraints.anchor = GridBagConstraints.WEST;
         pane.add(imageLabel, constraints);
-
-
 
         display();
     }

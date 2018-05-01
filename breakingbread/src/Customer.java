@@ -45,4 +45,8 @@ public class Customer extends User{
 
     public void removeItem(int ID){ order.removeItem(ID); }
 
+    @Override
+    public String toString() {
+        return getEmail();
+    }
 }
