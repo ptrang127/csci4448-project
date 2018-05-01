@@ -13,16 +13,20 @@ public class CartPage extends Page {
         ActionListener changeQuantity = e -> {
             try {
                 int newQuantity = Integer.parseInt(changeField.getText());
-                if (newQuantity < 0){
-                    newQuantity = 0;
+
+                if (newQuantity > 0){
+                    if (newQuantity > Inventory.getInstance().getProduct(product.getId()).getQuantity()){
+                        newQuantity = Inventory.getInstance().getProduct(product.getId()).getQuantity();
+                    }
+                    user.removeItem(product.getId());
+                    product.setQuantity(newQuantity);
+                    user.addItem(product);
+                    results(user);
                 }
-                else if (newQuantity > Inventory.getInstance().getProduct(product.getId()).getQuantity()){
-                    newQuantity = Inventory.getInstance().getProduct(product.getId()).getQuantity();
+                else if(newQuantity == 0){
+                    user.removeItem(product.getId());
+                    results(user);
                 }
-                user.removeItem(product.getId());
-                product.setQuantity(newQuantity);
-                user.addItem(product);
-                results(user);
             } catch (Exception ex) {
                 changeField.setText(String.format("%d",product.getQuantity()));
             }

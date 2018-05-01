@@ -79,6 +79,11 @@ public class Inventory {
     }
 
     public Product getProduct(int Id){
-        return stock.get(Id);
+        for(int i = 0; i < stock.size(); i++) {
+            if(stock.get(i).getId() == Id) {
+                return stock.get(i);
+            }
+        }
+        throw new IndexOutOfBoundsException();
     }
 }

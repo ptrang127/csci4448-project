@@ -54,8 +54,8 @@ public class ResultsPage extends Page {
             }
             else{
                 message.setText("Results:");
+                scroll.setVisible(true);
                 products.forEach(product -> {
-                    scroll.setVisible(true);
                     listModel.addElement(product);
                 });
             }
