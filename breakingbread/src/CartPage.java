@@ -38,7 +38,10 @@ public class CartPage extends Page {
     }
 
     private JPanel resultsPanel = new JPanel(new GridLayout(0,3));
+    private JLabel totalLabel, totalLabel1;
     private void results(Customer user) {
+        totalLabel.setText(String.format("%d",user.order.getSize()));
+        totalLabel1.setText(String.format("$%.2f",user.order.getCost()));
         resultsPanel.removeAll();
         user.getCart().getItems().forEach(product -> {
             JButton name = new JButton(product.getName());
@@ -78,8 +81,10 @@ public class CartPage extends Page {
 
         JPanel cartPanel = new JPanel(new GridLayout(0,3));
         cartPanel.add(new JLabel("Total"));
-        cartPanel.add(new JLabel(String.format("%d",user.order.getSize()),SwingConstants.CENTER));
-        cartPanel.add(new JLabel(String.format("$%.2f",user.order.getCost()),SwingConstants.RIGHT));
+        totalLabel = new JLabel(String.format("%d",user.order.getSize()),SwingConstants.CENTER);
+        cartPanel.add(totalLabel);
+        totalLabel1 = new JLabel(String.format("$%.2f",user.order.getCost()),SwingConstants.RIGHT);
+        cartPanel.add(totalLabel1);
 
         constraints.gridx = 0;
         constraints.gridy = 2;
