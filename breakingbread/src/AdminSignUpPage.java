@@ -2,8 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Arrays;
 
-public class AdminSignUpPage extends JFrame{
+public class AdminSignUpPage extends Page{
     public AdminSignUpPage() {
+        super();
+
         JLabel emailLabel = new JLabel("Enter email: ");
         JLabel passwordLabel = new JLabel("Enter password: ");
         JLabel confirmLabel = new JLabel("Confirm password: ");
@@ -16,8 +18,7 @@ public class AdminSignUpPage extends JFrame{
         JButton signUpButton = new JButton("Customer Sign Up");
         signUpButton.addActionListener(e ->{
             new SignUpPage();
-            setVisible(false);
-            dispose();
+            close();
         });
 
         JButton adminButton = new JButton("Sign Up");
@@ -34,22 +35,16 @@ public class AdminSignUpPage extends JFrame{
                 pack();
             }
             else{
-                setVisible(false);
-                dispose();
+                close();
             }
         });
 
         JButton backButton = new JButton("Back");
         backButton.addActionListener(e -> {
             new LoginPage();
-            setVisible(false);
-            dispose();
+            close();
         });
 
-        Container pane = getContentPane();
-        pane.setLayout(new GridBagLayout());
-
-        GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.CENTER;
         constraints.insets = new Insets(10, 10, 10, 10);
 
@@ -99,11 +94,6 @@ public class AdminSignUpPage extends JFrame{
         constraints.gridx = 1;
         pane.add(signUpButton, constraints);
 
-        setTitle("Sign Up Page");
-        pack();
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(false);
-        setVisible(true);
+        display();
     }
 }

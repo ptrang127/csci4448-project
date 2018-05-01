@@ -7,13 +7,7 @@ public class Application {
     private static int ID = 1;
     private static final String COMPANY_DOMAIN = "breadbreaker.com";
 
-    public static void main(String[] args) {
-        customers.add(new Customer(1,"cus","cus","street"));
-        admins.add(new Admin(2,"ad","ad"));
-        new LoginPage();
-    }
-
-    public static Boolean authenicate(String email){
+    private static Boolean authenicate(String email){
         String[] parts = email.split("@");
         if(parts.length == 2){
             String[] domain = parts[1].split("\\.");
@@ -22,6 +16,12 @@ public class Application {
             }
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        customers.add(new Customer(1,"c@c.c","",""));
+        admins.add(new Admin(2,"a@a.a",""));
+        new LoginPage();
     }
 
     public static Boolean login(String email, String password){
@@ -116,32 +116,27 @@ public class Application {
         return "";
     }
 
-    public static void  signout() {
-        currentUser = 0;
-        new LoginPage();
-    }
-
     public  static void cart() {
         new CartPage(customers.get(currentUser));
     }
 
-    /*public  static void addcart(Product product) {
-        //currentUser.getCart().addItem(product);
-        System.out.println(currentUser.getEmail());
-        new MainPage(currentUser, "Item Successfully Added to Cart");
+    public  static void addcart(Product product) {
+        customers.get(currentUser).getCart().addItem(product);
+        System.out.println(customers.get(currentUser).getEmail());
+        new MainPage(customers.get(currentUser));
     }
 
-    public static void product(Product product) {
-        new ProductPage(product);
+    public static void customerResults(String query) {
+        new ResultsPage(query, customers.get(currentUser));
     }
 
-    public static void results(String query) {
-        new ResultsPage(query, currentUser);
+    public static void adminResults(String query) {
+        new ResultsPage(query, admins.get(currentUser));
     }
 
-    public static List<Product> search(String query){
-        return currentUser.searchProduct(query);
-    }*/
+    public static List<Product> searchProduct(String query){
+        return Inventory.getInstance().searchProduct(query);
+    }
 
     public static void removeAccount(int userId){
         Iterator<Customer> itr = customers.iterator();
