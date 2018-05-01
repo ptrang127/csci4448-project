@@ -32,8 +32,8 @@ public class Customer extends User{
     }
 
     public void checkout(){
-        for(int i = 0; i < order.items.size(); i++) {
-            Inventory.removeProduct(order.items.get(i));
+        for(int i = 0; i < order.getItems().size(); i++) {
+            Inventory.removeProduct(order.getItems().get(i));
         }
         addToHistory(order);
         order.clearCart();
@@ -45,10 +45,6 @@ public class Customer extends User{
 
     public void removeItem(Product newProduct){
         order.removeItem(newProduct);
-    }
-
-    public int changeItem(int oldId, Product newProduct){
-        return 1;
     }
 
 }

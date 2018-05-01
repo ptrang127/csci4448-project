@@ -51,15 +51,13 @@ public class ResultsPage extends Page {
             List<Product> products = Application.searchProduct(searchField.getText());
             if(products.isEmpty()){
                 message.setText("No results");
-                pack();
-                return;
             }
-            java.util.Iterator<Product> itr = products.iterator();
-
-            while (itr.hasNext()){
+            else{
                 message.setText("Results:");
-                scroll.setVisible(true);
-                listModel.addElement(itr.next());
+                products.forEach(product -> {
+                    scroll.setVisible(true);
+                    listModel.addElement(product);
+                });
             }
             pack();
         };
@@ -107,7 +105,7 @@ public class ResultsPage extends Page {
                 close();
             }
         });
-        JButton cart = new JButton(String.format("Cart"));
+        JButton cart = new JButton("Cart");
         constraints.gridx = 2;
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.EAST;

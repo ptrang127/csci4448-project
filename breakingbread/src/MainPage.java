@@ -59,8 +59,12 @@ public class MainPage extends Page {
             close();
         };
 
+        searchButton.addActionListener(searchFunction);
+        searchField.addActionListener(searchFunction);
+
         JButton cart = new JButton(String.format("Cart"));
         constraints = new GridBagConstraints();
+        constraints.insets = new Insets(10, 10, 10, 10);
         constraints.gridx = 2;
         constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.EAST;
@@ -71,8 +75,6 @@ public class MainPage extends Page {
             close();
         });
 
-        searchButton.addActionListener(searchFunction);
-        searchField.addActionListener(searchFunction);
 
         display();
     }

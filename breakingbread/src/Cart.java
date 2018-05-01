@@ -2,13 +2,11 @@ import java.util.*;
 
 public class Cart {
 
-    ArrayList<Product> items = new ArrayList<>();
-    public float cost = 0;
+    private List<Product> items = new ArrayList<>();
+    private float cost = 0;
 
 
-    public Cart() {
-
-    }
+    public Cart() {}
 
     public void addItem(Product newProduct){
         if(Inventory.checkProduct(newProduct)) {
@@ -37,7 +35,7 @@ public class Cart {
     public float getCost() { //total cost of items in cart it
 
         for(int i = 0; i < items.size(); i ++) {
-            cost += items.get(i).getPrice();
+            cost += items.get(i).getPrice() * items.get(i).getQuantity();
         }
         return cost;
     }
@@ -48,6 +46,10 @@ public class Cart {
             size += items.get(i).getQuantity();
         }
         return size;
+    }
+
+    public List<Product> getItems(){
+        return items;
     }
 }
 
