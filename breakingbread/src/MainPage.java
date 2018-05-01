@@ -3,24 +3,14 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainPage extends Page {
-    public MainPage(Admin user) {
+    private JButton searchButton = new JButton("Search");
+    private JTextField searchField = new JTextField(20);
+    private JPanel searchPanel = new JPanel(new GridBagLayout());
 
-    }
-    public MainPage(Customer user) {
-        super();
-
-        //Pastels
-        /*Color orange = new Color(255,179,71);
-        Color red = new Color(255,87,71);
-        getContentPane().setBackground(orange);*/
-
+    private void search() {
         //search Bar
-        JButton searchButton = new JButton("Search");
-        JTextField searchField = new JTextField(20);
-        JPanel searchPanel = new JPanel(new GridBagLayout());
-
         constraints.gridx = 0;
-        constraints.gridy = 0;
+        constraints.gridy = 1;
         constraints.weightx = 1.0;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.insets = new Insets(0,10,0,10);
@@ -32,66 +22,57 @@ public class MainPage extends Page {
         constraints.anchor = GridBagConstraints.EAST;
         searchPanel.add(searchButton,constraints);
 
+        // add components to the content pane
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.weighty = 1.0;
+        constraints.anchor = GridBagConstraints.NORTHWEST;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10, 0, 10, 0);
+        //searchPanel.setBackground(orange);
+        pane.add(searchPanel, constraints);
+    }
 
+    public MainPage(Admin user) {
+        super();
+        header(user);
+        search();
         //search Functionality
         ActionListener searchFunction = e -> {
-            //Application.results(searchField.getText());
+            new ResultsPage(searchField.getText(), user);
             close();
         };
 
         searchButton.addActionListener(searchFunction);
         searchField.addActionListener(searchFunction);
+        display();
+    }
 
-        //Header bar
-        JPanel headerPanel = new JPanel(new GridBagLayout());
-
-        JLabel userLabel = new JLabel("Welcome " + user.getEmail());
-        JButton signoutButton = new JButton("Sign Out");
-
-        constraints = new GridBagConstraints();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(0, 10, 0, 10);
-
-        headerPanel.add(userLabel, constraints);
-        constraints.gridx = 1;
-        constraints.anchor = GridBagConstraints.WEST;
-        headerPanel.add(signoutButton, constraints);
-
-        signoutButton.addActionListener(e -> {
-            new LoginPage();
+    public MainPage(Customer user) {
+        super();
+        header(user);
+        search();
+        //search Functionality
+        ActionListener searchFunction = e -> {
+            new ResultsPage(searchField.getText(), user);
             close();
-        });
+        };
 
         JButton cart = new JButton(String.format("Cart"));
+        constraints = new GridBagConstraints();
         constraints.gridx = 2;
+        constraints.gridy = 0;
         constraints.anchor = GridBagConstraints.EAST;
         constraints.weightx = 1.0;
         headerPanel.add(cart, constraints);
         cart.addActionListener(e -> {
-            Application.cart();
+            new CartPage(user);
             close();
         });
 
-
-
-        // add components to the content pane
-        constraints = new GridBagConstraints();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
-        constraints.weightx = 1.0;
-        constraints.anchor = GridBagConstraints.NORTHWEST;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10, 0, 10, 0);
-        //headerPanel.setBackground(red);
-        add(headerPanel, constraints);
-
-
-        constraints.gridy++;
-        constraints.weighty = 1.0;
-        //searchPanel.setBackground(orange);
-        add(searchPanel, constraints);
+        searchButton.addActionListener(searchFunction);
+        searchField.addActionListener(searchFunction);
 
         display();
     }

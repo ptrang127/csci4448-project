@@ -21,7 +21,7 @@ public class Application {
     public static void main(String[] args) {
         customers.add(new Customer(1,"c@c.c","",""));
         admins.add(new Admin(2,"a@a.a",""));
-        new LoginPage();
+        new MainPage(new Admin(2,"a@a.a",""));
     }
 
     public static Boolean login(String email, String password){
@@ -116,22 +116,11 @@ public class Application {
         return "";
     }
 
-    public  static void cart() {
-        new CartPage(customers.get(currentUser));
-    }
 
     public  static void addcart(Product product) {
         customers.get(currentUser).getCart().addItem(product);
         System.out.println(customers.get(currentUser).getEmail());
         new MainPage(customers.get(currentUser));
-    }
-
-    public static void customerResults(String query) {
-        new ResultsPage(query, customers.get(currentUser));
-    }
-
-    public static void adminResults(String query) {
-        new ResultsPage(query, admins.get(currentUser));
     }
 
     public static List<Product> searchProduct(String query){

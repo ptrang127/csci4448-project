@@ -4,20 +4,19 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 public class ResultsPage extends Page {
-    public ResultsPage(String query, User user) {
-        //Overall layout
-        setLayout(new GridBagLayout());
-        GridBagConstraints constraints = new GridBagConstraints();
-        //Pastels
-        /*Color orange = new Color(255,179,71);
-        Color red = new Color(255,87,71);
-        getContentPane().setBackground(orange);*/
-
+    //results
+    private DefaultListModel<Product> listModel = new DefaultListModel<>();
+    private JList<Product> results = new JList(listModel);
+    private JLabel message = new JLabel();
+    private JScrollPane scroll = new JScrollPane(results);
+    private JPanel resultsPanel = new JPanel(new GridBagLayout());
+    private void search(String query){
         //search Bar
         JButton searchButton = new JButton("Search");
         JTextField searchField = new JTextField(query, 20);
         JPanel searchPanel = new JPanel(new GridBagLayout());
 
+        constraints = new GridBagConstraints();
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.weightx = 1.0;
@@ -30,14 +29,6 @@ public class ResultsPage extends Page {
         constraints.weightx = 0;
         constraints.anchor = GridBagConstraints.EAST;
         searchPanel.add(searchButton,constraints);
-
-
-        //results
-        DefaultListModel<Product> listModel = new DefaultListModel<>();
-        JList<Product> results = new JList(listModel);
-        JLabel message = new JLabel();
-        JScrollPane scroll = new JScrollPane(results);
-        JPanel resultsPanel = new JPanel(new GridBagLayout());
 
         constraints = new GridBagConstraints();
         constraints.insets = new Insets(0,10,0,10);
@@ -73,6 +64,42 @@ public class ResultsPage extends Page {
             pack();
         };
 
+        searchButton.addActionListener(searchFunction);
+        searchField.addActionListener(searchFunction);
+        searchButton.doClick();
+
+        constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        constraints.weightx = 1.0;
+        constraints.anchor = GridBagConstraints.NORTHWEST;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
+        constraints.insets = new Insets(10, 0, 10, 0);
+        //searchPanel.setBackground(orange);
+        pane.add(searchPanel, constraints);
+
+        constraints.gridy++;
+        constraints.weighty = 1.0;
+        pane.add(resultsPanel, constraints);
+
+        display();
+    }
+    public ResultsPage(String query, Admin user){
+        super();
+        header(user);
+        results.addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                Product product = results.getSelectedValue();
+                //TODO make admin product pages
+                close();
+            }
+        });
+        search(query);
+    }
+
+    protected ResultsPage(String query, Customer user) {
+        super();
+        header(user);
         results.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 Product product = results.getSelectedValue();
@@ -80,62 +107,16 @@ public class ResultsPage extends Page {
                 close();
             }
         });
-
-        searchButton.addActionListener(searchFunction);
-        searchField.addActionListener(searchFunction);
-        searchButton.doClick();
-
-        //Header bar
-        JPanel headerPanel = new JPanel(new GridBagLayout());
-
-        JLabel userLabel = new JLabel("Welcome " + user.getEmail());
-        JButton signoutButton = new JButton("Sign Out");
-
-        constraints = new GridBagConstraints();
-        constraints.gridx = 0;
+        JButton cart = new JButton(String.format("Cart"));
+        constraints.gridx = 2;
         constraints.gridy = 0;
-        constraints.weightx = 1.0;
-        constraints.anchor = GridBagConstraints.WEST;
-        constraints.insets = new Insets(0, 10, 0, 10);
-
-        headerPanel.add(userLabel, constraints);
-        constraints.gridx = 1;
         constraints.anchor = GridBagConstraints.EAST;
-        headerPanel.add(signoutButton, constraints);
-
-        signoutButton.addActionListener(e -> {
-            new LoginPage();
-            setVisible(false);
-            dispose();
-        });
-
-
-        // add components to the content pane
-        constraints = new GridBagConstraints();
-        constraints.gridx = 0;
-        constraints.gridy = 0;
         constraints.weightx = 1.0;
-        constraints.anchor = GridBagConstraints.NORTHWEST;
-        constraints.fill = GridBagConstraints.HORIZONTAL;
-        constraints.insets = new Insets(10, 0, 10, 0);
-        //headerPanel.setBackground(red);
-        add(headerPanel, constraints);
-
-
-        constraints.gridy++;
-        //searchPanel.setBackground(orange);
-        add(searchPanel, constraints);
-
-        constraints.gridy++;
-        constraints.weighty = 1.0;
-        add(resultsPanel, constraints);
-
-        setSize(5000,5000);
-        pack();
-        setTitle("Search Results");
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setResizable(true);
-        setVisible(true);
+        headerPanel.add(cart, constraints);
+        cart.addActionListener(e -> {
+            new CartPage(user);
+            close();
+        });
+        search(query);
     }
 }
