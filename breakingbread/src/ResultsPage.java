@@ -48,7 +48,7 @@ public class ResultsPage extends Page {
         //search functionality
         ActionListener searchFunction = e -> {
             listModel.clear();
-            List<Product> products = Application.searchProduct(searchField.getText());
+            List<Product> products = Inventory.getInstance().searchProduct(searchField.getText());
             if(products.isEmpty()){
                 message.setText("No results");
             }
@@ -103,7 +103,7 @@ public class ResultsPage extends Page {
         results.addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 Product product = results.getSelectedValue();
-                new ProductPage(product);
+                new ProductPage(user, product);
                 close();
             }
         });

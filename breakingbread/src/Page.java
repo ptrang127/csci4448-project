@@ -30,7 +30,6 @@ public abstract class Page extends JFrame{
         headerPanel.add(userLabel, constraints);
 
         constraints.gridx = 1;
-        constraints.weightx = 1.0;
         constraints.anchor = GridBagConstraints.EAST;
         headerPanel.add(signoutButton, constraints);
 

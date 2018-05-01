@@ -3,7 +3,6 @@ import java.util.*;
 public class Cart {
 
     private List<Product> items = new ArrayList<>();
-    private float cost = 0;
 
 
     public Cart() {}
@@ -11,17 +10,18 @@ public class Cart {
     public void addItem(Product newProduct){
         if(Inventory.checkProduct(newProduct)) {
             items.add(newProduct);
-            System.out.println("Item Successfully Added to Cart");
-            //possible addition of continue shopping or checkout on display
         } else {
             System.out.println("Item could not be added");
         }
 
     }
 
-    public void removeItem(Product newProduct){
-        System.out.println(newProduct.getName() + "removed");
-        items.remove(newProduct);
+    public void removeItem(int ID){
+        for(int i = 0; i < items.size(); i++) {
+            if(ID == items.get(i).getId()){
+                items.remove(items.get(i));
+            }
+        }
     }
 
     public void clearCart(){
@@ -33,7 +33,7 @@ public class Cart {
 
     }
     public float getCost() { //total cost of items in cart it
-
+        float cost = 0;
         for(int i = 0; i < items.size(); i ++) {
             cost += items.get(i).getPrice() * items.get(i).getQuantity();
         }

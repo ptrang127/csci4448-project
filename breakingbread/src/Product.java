@@ -2,18 +2,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Product {
+public class Product implements Cloneable{
     private int id, quantity;
-    private String name, description;
+    private String name, description, path;
     private float price;
     private List<Deal> deals;
 
-    public Product(int id, int quantity, String name, String description, float price) {
+    protected Product clone() {
+        return new Product(this.id,this.quantity,this.name,this.description,this.path,this.price);
+    }
+
+    public Product(int id, int quantity, String name, String description, String path, float price) {
         setId(id);
         setQuantity(quantity);
         setName(name);
         setDescription(description);
         setPrice(price);
+        setPath(path);
         deals = new ArrayList<Deal>();
     }
 
@@ -32,6 +37,8 @@ public class Product {
     public String getDescription() {
         return description;
     }
+
+    public String getPath() { return path; }
 
     public float getPrice(){
         return price;
@@ -64,6 +71,8 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public void setPath(String path){ this.path = path;}
 
     public void setPrice(float price) {
         if(getQuantity() >= 0)
